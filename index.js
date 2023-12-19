@@ -1,7 +1,8 @@
 const submitButton = document.getElementById('submit-button')
 const textInput = document.getElementById('text-input')
 const list = document.getElementById('list')
-const deleteButton = document.getElementsByClassName('delete-button')
+let deleteButtons = document.querySelectorAll('.delete-button')
+let checkboxes = document.querySelectorAll('.checkbox')
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault()
@@ -14,11 +15,16 @@ submitButton.addEventListener('click', (event) => {
     textInput.value = ''
     console.log(text)
 
-    const deleteButton = document.querySelector('.delete-button')
-    deleteButton.addEventListener('click', handleDelete)
+    deleteButtons = document.querySelectorAll('.delete-button')
+    checkboxes = document.querySelectorAll('.checkbox')
 
-    const checkbox = document.querySelector('.checkbox')
-    checkbox.addEventListener('click', handleCheck)
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', handleDelete)
+    })
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('click', handleCheck)
+    })
 })
 
 function handleCheck(event) {
