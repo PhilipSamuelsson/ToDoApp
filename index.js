@@ -4,6 +4,7 @@ const list = document.getElementById('list')
 const openModal = document.getElementById('open-modal')
 const modal = document.getElementById('modal')
 const closeModal = document.getElementsByClassName('close')
+const category = document.getElementById('category')
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault()
@@ -17,7 +18,12 @@ submitButton.addEventListener('click', (event) => {
     checkbox.className = 'checkbox'
     checkbox.addEventListener('click', handleCheck)
 
+    const categoryText = document.createElement('p')
+    categoryText.textContent = category.value
+    categoryText.className = 'category-text'
+
     const paragraph = document.createElement('p')
+    paragraph.className = 'paragraph'
     paragraph.textContent = text
 
     const deleteButton = document.createElement('button')
@@ -26,9 +32,9 @@ submitButton.addEventListener('click', (event) => {
     deleteButton.addEventListener('click', handleDelete)
 
     itemContainer.appendChild(checkbox)
+    itemContainer.appendChild(categoryText)
     itemContainer.appendChild(paragraph)
     itemContainer.appendChild(deleteButton)
-
     list.appendChild(itemContainer)
 
     textInput.value = ''

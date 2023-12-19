@@ -17,9 +17,10 @@ p {
     max-width: 30rem;
     height: 10rem;
     color: white;
+    position: relative;
 }
 
-.checked p {
+.checked .paragraph {
     text-decoration: line-through;
     color: #4caf50;
     font-style: italic;
@@ -56,12 +57,18 @@ p {
     z-index: 1;
 }
 
+.addTask-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 .modal-content {
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
-    max-width: 80%;
-    width: 100%;
+    max-width: 50%;
+    width: 30%;
     display: flex;
     justify-content: center;
     position: relative;
@@ -86,6 +93,10 @@ form {
     margin-bottom: 10px;
 }
 
+.category {
+    font-weight: bold;
+}
+
 #submit-button {
     background-color: #4caf50;
     color: white;
@@ -93,6 +104,8 @@ form {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #submit-button:hover {
@@ -108,4 +121,20 @@ form {
 .item-container .checkbox:checked {
     background-color: green;
     border-radius: 50%;
+}
+
+.category-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.paragraph {
+    font-size: 1.5rem;
+    margin: 1rem;
+    width: 100%;
+    word-wrap: break-word;
 }

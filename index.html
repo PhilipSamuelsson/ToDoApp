@@ -19,9 +19,15 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="text-center">
-                <h3>Add Task</h3>
+                <h3 class="addTask-header">Add Task</h3>
                 <form>
                     <input type="text" name="task" id="text-input" />
+                    <h3 class="category">Category:</h3>
+                    <select name="category" id="category">
+                        <option value="work">Work</option>
+                        <option value="hobby">Hobby</option>
+                        <option value="task">Task</option>
+                    </select>
                     <input type="submit" value="Add Task" id="submit-button" />
                 </form>
             </div>
