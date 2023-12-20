@@ -52,7 +52,8 @@ function handleDelete(event) {
     deleteButton.parentNode.remove()
 }
 
-openModal.addEventListener('click', () => {
+openModal.addEventListener('click', (event) => {
+    event.preventDefault()
     modal.style.display = 'block'
     openModal.style.display = 'none'
 })

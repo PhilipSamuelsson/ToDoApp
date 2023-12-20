@@ -11,7 +11,7 @@ p {
     padding: 0 1rem;
     background-color: rgb(66, 66, 66);
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0.5rem rgba(32, 25, 25, 0.5);
     margin: 1rem;
     width: 100%;
     max-width: 30rem;
@@ -61,19 +61,6 @@ p {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    max-width: 50%;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 50%;
-    margin: 0 auto;
 }
 
 .close {
@@ -137,4 +124,14 @@ form {
     margin: 1rem;
     width: 100%;
     word-wrap: break-word;
+    text-align: center;
+}
+
+.btn {
+    width: 100px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
 }
