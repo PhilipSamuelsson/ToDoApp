@@ -1,18 +1,22 @@
+// Declaring variables for elements in the HTML file
 const submitButton = document.getElementById('submit-button')
 const textInput = document.getElementById('text-input')
 const list = document.getElementById('list')
-const openModal = document.getElementById('open-modal')
-const modal = document.getElementById('modal')
-const closeModal = document.getElementsByClassName('close')
 const category = document.getElementById('category')
+const dateInput = document.getElementById('date-input')
 
+// Adding eventlistener for the text input, date input, and submit button
 submitButton.addEventListener('click', (event) => {
     event.preventDefault()
     const text = textInput.value
+    const dueDate = moment(dateInput.value)
+    const currentDate = moment()
 
+    // Creating div for the tasklist
     const itemContainer = document.createElement('div')
     itemContainer.className = 'item-container mx-auto'
 
+    // Creating checkbox, category, paragraph, due date, and delete button for the tasklist(div)
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
     checkbox.className = 'checkbox'
@@ -26,6 +30,12 @@ submitButton.addEventListener('click', (event) => {
     paragraph.className = 'paragraph'
     paragraph.textContent = text
 
+    // Declaring variables for the due date and delete button
+    const dueDateText = document.createElement('p')
+    const daysLeft = dueDate.diff(currentDate, 'days')
+    const weeksLeft = dueDate.diff(currentDate, 'weeks')
+    dueDateText.textContent = `Due in ${daysLeft} days (${weeksLeft} weeks)`
+    dueDateText.className = 'due-date-text'
     const deleteButton = document.createElement('button')
     deleteButton.className = 'delete-button'
     deleteButton.textContent = 'Delete'
@@ -34,31 +44,43 @@ submitButton.addEventListener('click', (event) => {
     itemContainer.appendChild(checkbox)
     itemContainer.appendChild(categoryText)
     itemContainer.appendChild(paragraph)
+    itemContainer.appendChild(dueDateText)
     itemContainer.appendChild(deleteButton)
     list.appendChild(itemContainer)
 
     textInput.value = ''
-    console.log(text)
+    dateInput.value = ''
 })
 
 function handleCheck(event) {
     const checkbox = event.target
-    checkbox.parentNode.classList.toggle('checked')
+    const itemContainer = checkbox.parentNode
+
+    // Toggle the 'checked' class on the itemContainer
+    itemContainer.classList.toggle('checked')
     textInput.classList.toggle('checked')
+
+    // Find the dueDateText element within the itemContainer
+    const dueDateText = itemContainer.querySelector('.due-date-text')
+
+    // If the checkbox is checked, set the text to 'Done', otherwise reset it
+    dueDateText.textContent = checkbox.checked
+        ? 'Done'
+        : getDueDateText(itemContainer)
+}
+
+function getDueDateText(itemContainer) {
+    // Function to get the due date text based on the current date
+    const dueDateText = itemContainer.querySelector('.due-date-text')
+    const currentDate = moment()
+    const dueDate = moment(dueDateText.getAttribute('data-due-date'))
+
+    const daysLeft = dueDate.diff(currentDate, 'days')
+    const weeksLeft = dueDate.diff(currentDate, 'weeks')
+    return `Due in ${daysLeft} days (${weeksLeft} weeks)`
 }
 
 function handleDelete(event) {
     const deleteButton = event.target
     deleteButton.parentNode.remove()
 }
-
-openModal.addEventListener('click', (event) => {
-    event.preventDefault()
-    modal.style.display = 'block'
-    openModal.style.display = 'none'
-})
-
-closeModal[0].addEventListener('click', () => {
-    modal.style.display = 'none'
-    openModal.style.display = 'block'
-})

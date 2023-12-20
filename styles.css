@@ -1,8 +1,35 @@
+/*
+1. Global styling for the application.
+2. Tasklist styling.
+3. Modal and button to open modal.
+4. Styling checkbox.
+5. Styling for the task description-paragraph.
+6. Styling for the "Add task-button".
+*/
+
+*/
+
+
+
+/* 1. Global styling for the application. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 p {
     margin: 0;
     font-size: 1.5rem;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(66, 66, 66);
+    color: white;
+}
+
+/* 2. Tasklist styling */
 .item-container {
     display: flex;
     flex-direction: row;
@@ -14,8 +41,8 @@ p {
     box-shadow: 0 0 0.5rem rgba(32, 25, 25, 0.5);
     margin: 1rem;
     width: 100%;
-    max-width: 30rem;
-    height: 10rem;
+    max-width: 40rem;
+    height: 15rem;
     color: white;
     position: relative;
 }
@@ -35,6 +62,7 @@ p {
     cursor: pointer;
 }
 
+/* 3. Modal and button to open modal. */
 #open-modal {
     background-color: #4caf50;
     color: white;
@@ -55,12 +83,6 @@ p {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-}
-
-.addTask-header {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
 }
 
 .close {
@@ -84,6 +106,15 @@ form {
     font-weight: bold;
 }
 
+.due-date-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 #submit-button {
     background-color: #4caf50;
     color: white;
@@ -99,15 +130,10 @@ form {
     background-color: #45a049;
 }
 
-/* Styling checkbox */
+/* 4. Styling checkbox */
 .checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-.item-container .checkbox:checked {
-    background-color: green;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
 
 .category-text {
@@ -119,6 +145,7 @@ form {
     left: 0;
 }
 
+/* 5. Styling for the task description-paragraph */
 .paragraph {
     font-size: 1.5rem;
     margin: 1rem;
@@ -127,6 +154,7 @@ form {
     text-align: center;
 }
 
+/* 6. Styling for the "Add task-button" */
 .btn {
     width: 100px;
 }
