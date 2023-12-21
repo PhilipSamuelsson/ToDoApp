@@ -41,13 +41,14 @@ submitButton.addEventListener('click', (event) => {
     deleteButton.textContent = 'Delete'
     deleteButton.addEventListener('click', handleDelete)
 
+    /* Adding elements to the task list container item. */
     itemContainer.appendChild(checkbox)
     itemContainer.appendChild(categoryText)
     itemContainer.appendChild(paragraph)
     itemContainer.appendChild(dueDateText)
     itemContainer.appendChild(deleteButton)
     list.appendChild(itemContainer)
-
+/* Reset the inputs after submitting. */
     textInput.value = ''
     dateInput.value = ''
 })
